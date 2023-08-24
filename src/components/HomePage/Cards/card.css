@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,700&display=swap');
+
+.body{
+  background-color: #FBFBFF;
+}
+
+footer{
+    width: -webkit-fill-available;
+    /* position: absolute; */
+    bottom: 0;
+      
+}
+/* .flex-container {
+    display: flex;
+    align-items: stretch;
+  } */
+
+  /* main>h1{
+    padding-left: 5%;
+    color: #0B4F6C;
+    font-family: 'Nunito Sans', sans-serif;
+  } */
+  
+  /* .flex-container > div {
+    background-color: DodgerBlue;
+    color: white;
+    margin: 1%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  } */
+
+  .card-s{
+   padding: 3% 3%;
+   /* margin: 1% 0; */
+  }
+
+
+
