@@ -3,19 +3,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import LoginPage from './components/LoginPage/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
-// import 'bootstrap/dist/css/bootstrap.css';
+import { AuthContextProvider } from './components/Context/AuthContext';
+import Protected from './components/protected';
 
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+    <AuthContextProvider>
     <Routes>
     <Route path="/" exact element={<HomePage/>}/>
     <Route path="/login" exact element={<LoginPage/>}/>
-    <Route path="/profile" exact element={<ProfilePage/>}/>
+    <Route path="/profile" exact element={<Protected><ProfilePage/></Protected>}/>
     </Routes>
-    </BrowserRouter>
+    </AuthContextProvider>
+    </>
   );
 }
 

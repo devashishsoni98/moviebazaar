@@ -1,0 +1,18 @@
+.profile-style{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 45vh;
+}
+
+.p-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    cursor: pointer;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 2rem;
+}
