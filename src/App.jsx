@@ -12,11 +12,13 @@ function App() {
   return (
     <>
     <AuthContextProvider>
+    <BrowserRouter>
     <Routes>
     <Route path="/" exact element={<HomePage/>}/>
     <Route path="/login" exact element={<LoginPage/>}/>
     <Route path="/profile" exact element={<Protected><ProfilePage/></Protected>}/>
     </Routes>
+    </BrowserRouter>
     </AuthContextProvider>
     </>
   );
