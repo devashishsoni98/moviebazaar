@@ -11,12 +11,14 @@ import GoogleButton from "react-google-button";
 import { UserAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import './login.css'
 
 
 export default function SignIn() {
 
   const {googleSignIn, user} = UserAuth ();
+  const history = useHistory();
   const navigate = useNavigate()
 
     const handleGoogleSignIn = async () => {
@@ -28,8 +30,8 @@ export default function SignIn() {
     };  
 
     useEffect(() => {
-      if (user != null){
-        navigate('/profile')
+      if (user){
+        history.push("/userprofile"); 
       }
     },[user])
 
