@@ -5,14 +5,39 @@
     align-items: center;
     min-height: 45vh;
 }
-
-.p-btn{
+.profile-style>h1{
+    font-size: 3rem;
+    margin-top: 4%;
+}
+.content{
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
+.text{
+    font-size: 2rem;
+    text-align: center;
+}
+.user-img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3rem;
-    cursor: pointer;
-    padding: 1rem;
-    border: 2px solid black;
-    border-radius: 2rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 10%;
+    border-radius: 50%;
+}
+.details{
+    font-size: 1.5rem;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-weight: 700;
+}
+.details-content{
+    font-size: 1.3rem;
+    margin: 1% 0 0 15%;
+}
+.details-headings{
+    font-weight: 500;
+    text-decoration: underline;
 }

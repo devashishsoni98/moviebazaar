@@ -1,4 +1,53 @@
-* {
+.space{
+  padding: 0px 0rem 0 0;
+  margin: 0 0.1rem 0rem 3rem;
+}
+.navbar{
+  background-color: rgb(11, 79, 108);
+  color: rgb(251, 251, 255);
+}
+.nav-link{
+  color: rgb(251, 251, 255) !important;
+  display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.navbar-brand{
+  color: rgb(251, 251, 255) !important;
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 400;
+  color: var(--bs-dropdown-link-color);
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--bs-dropdown-item-border-radius, 0);
+}
+.navbar-toggler-icon, .navbar-toggler {
+  color: rgb(251, 251, 255) !important;
+}
+
+.profile-picture img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  margin-left: 2rem;
+}
+
+
+/* * {
   box-sizing: border-box;
 }
 
@@ -13,17 +62,22 @@ body {
   padding: 1rem 1.5rem;
 }
 
-.header a {
+NavLink {
   float: left;
   color: black;
   text-align: center;
-  padding: 12px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
 }
 
+.custom-btn{
+  text-align: start;
+  text-decoration: none;
+  color: #000;
+  border-radius: 4px;
+}
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
@@ -108,3 +162,25 @@ body {
   padding: 12px;
   text-align: center;
 }
+
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.profile-email {
+  font-size: .8rem;
+  color: #888;
+}
+.profile-button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: black;
+} */

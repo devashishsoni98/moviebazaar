@@ -1,9 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import "./header.css";
-import { FaHome } from "react-icons/fa";
-import { BiLogIn, BiSolidUser } from "react-icons/bi";
 import { UserAuth } from "../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { user, logOut } = UserAuth();
@@ -19,45 +21,48 @@ const Header = () => {
       }
     }
   };
-
   return (
-    <div className="header">
-      <Link className="logo" to="/">
-        DS
-      </Link>
-      <div className="header-right">
-        <NavLink to="/" exact className="header-link" activeClassName="active">
-          <FaHome className="icon" /> Home
-        </NavLink>
-        {user ? (
-          <div className="profile-container">
-            <NavLink
-              to="/profile"
-              className="header-link"
-              activeClassName="active"
-            >
-              <BiSolidUser className="icon" /> Profile
-            </NavLink>
-            <div className="profile-picture">
-              <img src={user.photoURL} alt="Profile" />
-            </div>
-            <div
-              className="sign-out header-link"
-              activeClassName="active"
-              onClick={handleSignOut}
-            >
-              Sign Out
-            </div>
+    <>
+      <Navbar expand="lg" className="bg-body-primary navbar">
+        <Container className="space">
+          <Navbar.Brand href="#home">DS</Navbar.Brand>
+          <div>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+
+                {user ? (
+                  <NavDropdown title="Profile" id="basic-nav-dropdown">
+                    <Link className="dropdown-item" to="/profile">
+                      {user.displayName}
+                    </Link>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item
+                      href="#action/3.4"
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                )}
+                {user ? (<div className="profile-picture">
+                  <img src={user.photoURL} alt="Profile" />
+                </div>): null}
+                
+              </Nav>
+            </Navbar.Collapse>
           </div>
-        ) : (
-          <NavLink to="/login" className="header-link" activeClassName="active">
-            <BiLogIn className="icon" /> Login
-          </NavLink>
-        )}
-      </div>
-    </div>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 
 export default Header;
-
