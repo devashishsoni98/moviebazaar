@@ -23,7 +23,7 @@ const ProfilePage = () => {
   return (
     <>
       <Header />
-      <div className='profile-container'>
+      <div>
         <div className='profile-style'>
           <h1>Account</h1>
           <div>

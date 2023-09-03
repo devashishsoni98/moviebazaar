@@ -29,7 +29,7 @@ export default function SignIn() {
 
     useEffect(() => {
       if (user != null){
-        navigate('/profile')
+        navigate('/')
       }
     },[user])
 
