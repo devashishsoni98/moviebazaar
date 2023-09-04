@@ -25,7 +25,7 @@ const Header = () => {
     <>
       <Navbar expand="lg" className="bg-body-primary navbar">
         <Container className="space">
-          <Navbar.Brand href="#home">DS</Navbar.Brand>
+          <Link className="navbar-brand" to="/">DS</Link>
           <div>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

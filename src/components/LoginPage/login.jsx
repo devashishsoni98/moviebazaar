@@ -40,8 +40,14 @@ export default function SignIn() {
 
   return (
     <>
+    <div className="cont">
     <div className="g-div">
     <GoogleButton onClick={handleGoogleSignIn}/>
+    </div>
+    <div className="divider">
+      <div className="line"></div>
+      <div className="text">or continue with email</div>
+      <div className="line"></div>
     </div>
     <Container component="main" maxWidth="sm">
       <Box
@@ -95,6 +101,7 @@ export default function SignIn() {
         </Box>
       </Box>
     </Container>
+    </div>
     </>
   );
 }
