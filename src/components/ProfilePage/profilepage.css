@@ -8,6 +8,7 @@
 .profile-style>h1{
     font-size: 3rem;
     margin-top: 4%;
+    text-align: -webkit-center;
 }
 .content{
     width: -webkit-fill-available;

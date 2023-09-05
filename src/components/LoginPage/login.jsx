@@ -49,7 +49,7 @@ export default function SignIn() {
       <div className="text">or continue with email</div>
       <div className="line"></div>
     </div>
-    <Container component="main" maxWidth="sm">
+    <Container component="main" maxWidth="sm" className="sign">
       <Box
         sx={{
           boxShadow: 3,

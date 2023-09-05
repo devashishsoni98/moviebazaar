@@ -1,9 +1,7 @@
 import Footer from "../common/footer";
 import "./HomePage.css";
-// import MultiActionAreaCard from "./Cards/card";
 import Header from "../common/header";
 import ActionAreaCard from "./Cards/card";
-
 
        const HomePage = () => {
   return (
@@ -16,7 +14,7 @@ import ActionAreaCard from "./Cards/card";
           className="imgg" alt="banner"
         />
         <div>
-          <div style={{ flexGrow: "1", display:"flex", justifyContent:"space-evenly" }}>
+          <div className="d" style={{ flexGrow: "1", display:"flex", justifyContent:"space-evenly", marginTop:"3%" }}>
             <ActionAreaCard />
           </div>
         </div>
