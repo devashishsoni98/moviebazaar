@@ -11,10 +11,11 @@ import "./card.css";
 
 export default function ActionAreaCard() {
   const [movieList, setMovieList] = useState([]);
+  const apikey = process.env.REACT_APP_TMDB_API;
 
   const getMovie = () => {
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?api_key=739985bb5f6908d92a8df6cd40d711db"
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}`
     )
       .then((res) => res.json())
       .then((json) => setMovieList(json.results));
