@@ -5,6 +5,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import { AuthContextProvider } from './components/Context/AuthContext';
 import Protected from './components/protected';
+import MovieDetailsPage from './components/HomePage/Cards/MovieDetailsPage';
 
 
 
@@ -17,6 +18,7 @@ function App() {
     <Route path="/" exact element={<HomePage/>}/>
     <Route path="/login" exact element={<LoginPage/>}/>
     <Route path="/profile" exact element={<Protected><ProfilePage/></Protected>}/>
+    <Route path="/movie/:id" element={<MovieDetailsPage />} />
     </Routes>
     </BrowserRouter>
     </AuthContextProvider>

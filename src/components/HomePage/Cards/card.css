@@ -3,6 +3,10 @@
 .body {
   background-color: #fbfbff;
 }
+.row{
+  padding: 2% 3%; 
+  text-align: -webkit-center;
+}
 
 .title {
   text-decoration: none;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,33 +9,18 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./card.css";
 
-export default function ActionAreaCard() {
-  const [movieList, setMovieList] = useState([]);
-  const apikey = process.env.REACT_APP_TMDB_API;
-
-  const getMovie = () => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}`
-    )
-      .then((res) => res.json())
-      .then((json) => setMovieList(json.results));
-  };
-
-  useEffect(() => {
-    getMovie();
-  }, []);
-
+export default function ActionAreaCard({ movies }) {
   return (
     <div className="row container">
-      {movieList &&
-        movieList.map((movie, index) => (
-          <div
-            className="card-s col-lg-4"
-            key={movie.id}
-            style={{ padding: "2% 3%", textAlign: "-webkit-center" }}
-          >
+      {movies.map((movie, index) => (
+        <div
+          className="card-s col-lg-4"
+          key={movie.id}
+          style={{ padding: "2% 3%", textAlign: "-webkit-center" }}
+        >
+        
+          <Link to={`/movie/${movie.id}`} className="link-c">
             <Card sx={{ maxWidth: 345, boxShadow: 5 }}>
-              {/* <Link className="link-c" to={`/movie/${movie.id}`}> */}
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -50,14 +35,16 @@ export default function ActionAreaCard() {
                   </Typography>
                   <MyRating value={Number(movie.vote_average) / 2} />
                   <Typography variant="body2" color="textSecondary" className="rate">
-                    {Number(movie.vote_average/2).toFixed(1)} / 5
+                    {Number(movie.vote_average / 2).toFixed(1)} / 5
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              {/* </Link> */}
             </Card>
-          </div>
-        ))}
+          </Link>
+        </div>
+      ))}
     </div>
   );
 }
+
+
