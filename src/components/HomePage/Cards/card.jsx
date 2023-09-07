@@ -8,17 +8,21 @@ import MyRating from "../Rating";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./card.css";
+import { easeInOut, motion } from "framer-motion";
 
 export default function ActionAreaCard({ movies }) {
   return (
     <div className="row container">
       {movies.map((movie, index) => (
-        <div
+        <motion.div
+          initial={{ y: 75 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: easeInOut }}
           className="card-s col-lg-4"
           key={movie.id}
           style={{ padding: "2% 3%", textAlign: "-webkit-center" }}
         >
-        
           <Link to={`/movie/${movie.id}`} className="link-c">
             <Card sx={{ maxWidth: 345, boxShadow: 5 }}>
               <CardActionArea>
@@ -34,17 +38,19 @@ export default function ActionAreaCard({ movies }) {
                     {movie.original_title}
                   </Typography>
                   <MyRating value={Number(movie.vote_average) / 2} />
-                  <Typography variant="body2" color="textSecondary" className="rate">
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    className="rate"
+                  >
                     {Number(movie.vote_average / 2).toFixed(1)} / 5
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
           </Link>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
 }
-
-

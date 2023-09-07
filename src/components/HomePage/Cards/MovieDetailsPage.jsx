@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieDetailsPage.css"; 
-import Header from "../../common/header"
-import {VscDebugBreakpointLog}  from 'react-icons/vsc'
+import Header from "../../common/header";
+import {VscDebugBreakpointLog}  from 'react-icons/vsc';
+import { easeIn, easeInOut, motion } from "framer-motion";
 
 const MovieDetailsPage = () => {
   const apikey = process.env.REACT_APP_TMDB_API;
@@ -32,7 +33,12 @@ const MovieDetailsPage = () => {
   return (
     <>
     <Header/>
-    <div className="movie-details-container">
+    <motion.div 
+    initial={{ y: 25, opacity:0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, ease: easeInOut }}
+    className="movie-details-container">
       {movieDetails ? (
         <>
           <h1 className="movie-title">{movieDetails.title}</h1>
@@ -55,7 +61,7 @@ const MovieDetailsPage = () => {
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </motion.div>
     </>
   );
 };

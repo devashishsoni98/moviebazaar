@@ -11,7 +11,8 @@ import GoogleButton from "react-google-button";
 import { UserAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import './login.css'
+import './login.css';
+import { easeInOut, motion } from "framer-motion";
 
 
 export default function SignIn() {
@@ -40,7 +41,12 @@ export default function SignIn() {
 
   return (
     <>
-    <div className="cont">
+    <motion.div 
+    initial={{ y: 25, opacity:0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.75, ease: easeInOut }}
+    className="cont">
     <div className="g-div">
     <GoogleButton onClick={handleGoogleSignIn}/>
     </div>
@@ -101,7 +107,7 @@ export default function SignIn() {
         </Box>
       </Box>
     </Container>
-    </div>
+    </motion.div>
     </>
   );
 }

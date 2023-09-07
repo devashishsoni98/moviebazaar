@@ -5,6 +5,7 @@ import "./profilepage.css";
 import Header from "../common/header";
 import { MdVerifiedUser } from "react-icons/md";
 import { MdOutlineError } from "react-icons/md";
+import { easeInOut, motion } from "framer-motion";
 
 const ProfilePage = () => {
   const { logOut, user } = UserAuth();
@@ -31,12 +32,23 @@ const ProfilePage = () => {
   return (
     <>
       <Header />
-      <div>
+      <motion.div
+      initial={{ x: -45, opacity:0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.75, ease: easeInOut }}
+      >
         <div className="profile-style">
           <h1>Welcome, {user?.displayName}</h1>
           <div className="content">
             <img className="user-img" src={user?.photoURL} alt="user-image" />
             <p className="text">You are logged into MovieBazaar!!</p>
+            <motion.div
+            initial={{ y: 25, opacity:0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75, ease: easeInOut }}
+            >
             <p className="details">User Details:</p>
             {user?.email ? (
               <>
@@ -109,9 +121,10 @@ const ProfilePage = () => {
                 <p className="details-content">UID is loading.</p>
               </>
             )}
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </>
   );
