@@ -93,3 +93,4 @@ const Header = ({ onSearch, onHomeClick }) => {
 };
 
 export default Header;
+
