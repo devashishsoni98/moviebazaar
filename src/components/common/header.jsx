@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./header.css";
 import { UserAuth } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import {BsCaretDownFill, BsCaretUpFill} from 'react-icons/bs'
+import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
 
 const Header = ({ onSearch, onHomeClick }) => {
   const { user, logOut } = UserAuth();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSignOut = async () => {
     const confirmSignOut = window.confirm("Are you sure you want to sign out?");
@@ -29,6 +29,16 @@ const Header = ({ onSearch, onHomeClick }) => {
     location.pathname === "/login" ||
     location.pathname.startsWith("/movie/");
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    if (user) {
+      setMenuOpen(false);
+    }
+  }, [user]);
+
   return (
     <header className="header">
       <div className="header-container">
@@ -37,7 +47,7 @@ const Header = ({ onSearch, onHomeClick }) => {
         </Link>
         <div
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={toggleMenu}
         >
           <div className="bar"></div>
           <div className="bar"></div>
@@ -83,4 +93,3 @@ const Header = ({ onSearch, onHomeClick }) => {
 };
 
 export default Header;
-
