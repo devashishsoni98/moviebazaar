@@ -9,7 +9,6 @@ import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
 const Header = ({ onSearch, onHomeClick }) => {
   const { user, logOut } = UserAuth();
   const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSignOut = async () => {
@@ -29,38 +28,20 @@ const Header = ({ onSearch, onHomeClick }) => {
     location.pathname === "/login" ||
     location.pathname.startsWith("/movie/");
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  useEffect(() => {
-    if (user) {
-      setMenuOpen(false);
-    }
-  }, [user]);
-
   return (
     <header className="header">
       <div className="header-container">
         <Link className="navbar-brand" to="/" onClick={onHomeClick}>
           DS
         </Link>
-        <div
-          className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-        <nav className={`nav ${menuOpen ? "open" : ""}`}>
+        <nav className="nav">
           <ul>
             <li>
               <Link to="/" onClick={onHomeClick}>
                 Home
               </Link>
             </li>
-            {user ? (
+            {user && (
               <li className="dropdown">
                 <span className="profile" onClick={() => setDropdownOpen(!dropdownOpen)}>
                   Profile {dropdownOpen ? <BsCaretUpFill className="icon-p" /> : <BsCaretDownFill className="icon-p" />}
@@ -72,7 +53,8 @@ const Header = ({ onSearch, onHomeClick }) => {
                   <li className="so" onClick={handleSignOut}>Sign Out</li>
                 </ul>
               </li>
-            ) : (
+            )}
+            {!user && (
               <li>
                 <Link to="/login">Login</Link>
               </li>
@@ -93,4 +75,3 @@ const Header = ({ onSearch, onHomeClick }) => {
 };
 
 export default Header;
-
