@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./Searchbar.css"
+import {FaSearch} from 'react-icons/fa'
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,14 +19,17 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="s-container">
       <input
+        className="input-box"
         type="text"
         placeholder="Search movies..."
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button 
+      className="search-btn"
+      onClick={handleSearch}><FaSearch className="icon"/></button>
     </div>
   );
 };

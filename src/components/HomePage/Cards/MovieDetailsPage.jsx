@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieDetailsPage.css"; 
 import Header from "../../common/header"
+import {VscDebugBreakpointLog}  from 'react-icons/vsc'
 
 const MovieDetailsPage = () => {
   const apikey = process.env.REACT_APP_TMDB_API;
@@ -45,10 +46,10 @@ const MovieDetailsPage = () => {
             />
           </div></div>
           <div className="div-two">
-          <p className="release-date">Release Date: {movieDetails.release_date}</p>
-          <p className="vote-average">Vote Average: {movieDetails.vote_average}</p>
-          <p className="runtime">Runtime: {movieDetails.runtime} minutes</p>
-          <p className="overview">Overview: {movieDetails.overview}</p></div>
+          <p className="release-date"><VscDebugBreakpointLog/> Release Date: <span className="col">{movieDetails.release_date}</span></p>
+          <p className="vote-average"><VscDebugBreakpointLog/> Vote Average: <span className="col">{movieDetails.vote_average}</span></p>
+          <p className="runtime"><VscDebugBreakpointLog/> Runtime: <span className="col">{movieDetails.runtime} minutes</span></p>
+          <p className="overview"><VscDebugBreakpointLog/> Overview: <br /> <span className="col space">{movieDetails.overview}</span></p></div>
           </div>
         </>
       ) : (
