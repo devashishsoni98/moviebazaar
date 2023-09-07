@@ -25,3 +25,9 @@
     .icon{
     color: rgb(106, 208, 255);}
 }
+
+@media (max-width:768px){
+    .s-container{
+        width: 150%;
+    }
+}

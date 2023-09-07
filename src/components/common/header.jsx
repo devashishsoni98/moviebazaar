@@ -62,9 +62,7 @@ const Header = ({ onSearch, onHomeClick }) => {
             {!hideSearchBar && <li><SearchBar onSearch={onSearch} /></li>}
             {user && (
               <li>
-                <div className="profile-picture">
-                  <img src={user.photoURL} alt="Profile" />
-                </div>
+                  <img src={user.photoURL} alt="Profile"  className="profile-picture"/>
               </li>
             )}
           </ul>
