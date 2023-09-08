@@ -1,74 +1,32 @@
-.header {
-  background-color: rgb(11, 79, 108);
-  color: rgb(251, 251, 255);
-  padding: 10px 0;
-}
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 
-.navbar-brand {
-  color: rgb(251, 251, 255);
-  text-decoration: none;
-  font-size: 24px;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav ul {
-  list-style-type: none;
-  margin: 0;
+* {
   padding: 0;
-  display: flex;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
 }
 
-.nav li {
-  margin-right: 20px;
-  font-size: 18px;
-  align-self: center;
-}
-
-.nav a {
-  color: rgb(251, 251, 255);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav a:hover {
-  color: rgb(106, 208, 255);
+:root {
+  --mainColor: rgb(11, 79, 108);
+  --mainColorLight: #5767aa;
+  --secondaryColor: rgb(0, 200, 255);
+  --textColor: #eee;
 }
 
 .profile {
   transition: color 0.3s;
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .profile:hover {
   cursor: pointer;
-  color: rgb(106, 208, 255);
+  color: rgb(0, 200, 255);
 }
-
-.icon-p {
-  vertical-align: middle;
-}
-
-.so {
-  transition: color 0.3s;
-}
-
-.so:hover {
-  cursor: pointer;
-  color: rgb(106, 208, 255);
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -86,61 +44,123 @@
 .dropdown-content:hover,
 .dropdown-content.open {
   display: block !important;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
 }
 
 .dropdown-content li {
   padding: 10px;
 }
-
 .profile-picture{
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
-  margin-right: 0.6rem;
-  margin-left: 2rem;
+}
+ul{
+  padding-left: 0rem !important;
+  text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-  .nav li {
-    margin: 0;
-    padding: 10px 10px 10px 12px;
-    text-align: center;
-    width: 100%;
-    font-size: 1rem;
+.d-list{
+  text-decoration: none;
+  color: #eee;
+  padding-left: 0rem !important;
+  transition: .3s ease;
+  list-style: none !important;
+}
+.d-list:hover{
+  color: var(--secondaryColor);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}
+
+.logo {
+  text-decoration: none !important;
+  color: white;
+  transition: 0.3s ease;
+  font-size: 2rem;
+}
+.logo:hover {
+  color: var(--secondaryColor);
+}
+
+.link {
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--secondaryColor);
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+header div,
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.navi{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%; 
+}
+
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    right: 2rem;
   }
 
-  .profile{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .dropdown-content:hover,
-  .dropdown-content.open {
-    display: block !important;
-    margin-top: 1.2rem;
-  }
-
-  .profile-picture{
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    margin: 0;
-    margin-left: 1.5rem;
-  }
-
-  .icon-p {
-    vertical-align: middle;
-  }
-
-  .dropdown {
-    margin: 0;
-    width: 100%;
-  }
-
-  .dropdown-content {
-    width: 100%;
+  header nav {
+    position: fixed;
+    top: -120vh;
     left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    z-index: 2;
+  }
+
+  header .responsive_nav {
+    transform: translateY(120vh);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav .link {
+    font-size: 1.5rem;
   }
 }

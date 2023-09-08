@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useLocation } from "react-router-dom";
 import "./header.css";
 import { UserAuth } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./header.css";
 
-const Header = ({ onSearch, onHomeClick }) => {
+
+const Navbar = ({ onSearch, onHomeClick }) => {
   const { user, logOut } = UserAuth();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -28,48 +32,86 @@ const Header = ({ onSearch, onHomeClick }) => {
     location.pathname === "/login" ||
     location.pathname.startsWith("/movie/");
 
+  const navRef = useRef();
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  };
+
+  const closeNavbar = () => {
+    navRef.current.classList.remove("responsive_nav");
+  };
+
   return (
-    <header className="header">
-      <div className="header-container">
-        <Link className="navbar-brand" to="/" onClick={onHomeClick}>
+    <header>
+      <h3>
+        <Link className="logo" to="/" onClick={onHomeClick}>
           DS
         </Link>
-        <nav className="nav">
-          <ul>
-            <li>
-              <Link to="/" onClick={onHomeClick}>
-                Home
-              </Link>
-            </li>
-            {user && (
-              <li className="dropdown">
-                <span className="profile" onClick={() => setDropdownOpen(!dropdownOpen)}>
-                  Profile {dropdownOpen ? <BsCaretUpFill className="icon-p" /> : <BsCaretDownFill className="icon-p" />}
-                </span>
-                <ul className={`dropdown-content ${dropdownOpen ? "open" : ""}`}>
-                  <li>
-                    <Link to="/profile">{user.displayName}</Link>
-                  </li>
-                  <li className="so" onClick={handleSignOut}>Sign Out</li>
-                </ul>
+      </h3>
+      <nav className="navi" ref={navRef}>
+        
+        <Link
+  className="link"
+  to="/"
+  onClick={() => {
+    if (typeof onHomeClick === 'function') {
+      onHomeClick(); 
+    }
+    closeNavbar(); 
+  }}
+>
+  Home
+</Link>
+        {!user && (
+          <Link className="link" to="/login" onClick={showNavbar}>
+            Login
+          </Link>
+        )}
+
+        {/* <Link className="link" to="/">Blog</Link> */}
+        {/* <Link className="link" to="/">About me</Link> */}
+
+
+        {!hideSearchBar && <SearchBar onSearch={onSearch} onClose={closeNavbar} />}
+
+        {user && (
+          <li className="dropdown">
+            <span
+              className="profile"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              Profile{" "}
+              {dropdownOpen ? (
+                <BsCaretUpFill className="icon-p" />
+              ) : (
+                <BsCaretDownFill className="icon-p" />
+              )}
+            </span>
+            <ul className={`dropdown-content ${dropdownOpen ? "open" : ""}`}>
+              <li className="d-list">
+                <Link className="d-list" to="/profile">{user.displayName}</Link>
               </li>
-            )}
-            {!user && (
-              <li>
-                <Link to="/login">Login</Link>
+              <li className="d-list" onClick={handleSignOut}>
+                Sign Out
               </li>
-            )}
-            {!hideSearchBar && <li><SearchBar onSearch={onSearch} /></li>}
-            {user && (
-              <li>
-                  <img src={user.photoURL} alt="Profile"  className="profile-picture"/>
-              </li>
-            )}
-          </ul>
-        </nav>
-      </div>
+            </ul>
+          </li>
+        )}
+        {user && (
+          <img src={user.photoURL} alt="Profile" className="profile-picture" />
+        )}
+
+        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+          <FaTimes />
+        </button>
+      </nav>
+      <button className="nav-btn" onClick={showNavbar}>
+        <FaBars />
+      </button>
     </header>
   );
 };
 
-export default Header;
+export default Navbar;
+

@@ -3,7 +3,7 @@ import Footer from "../common/footer";
 import "./HomePage.css";
 import Header from "../common/header";
 import ActionAreaCard from "./Cards/card";
-import { easeInOut, motion } from "framer-motion";
+// import { easeInOut, motion } from "framer-motion";
 
 const HomePage = () => {
   const apikey = process.env.REACT_APP_TMDB_API;
@@ -19,7 +19,7 @@ const HomePage = () => {
     )
       .then((res) => res.json())
       .then((json) => {
-        console.log("Search results:", json);
+        // console.log("Search results:", json);
         const filteredResults = json.results.filter(
           (movie) => movie.poster_path
         );

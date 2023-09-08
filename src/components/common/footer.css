@@ -104,10 +104,12 @@
     .link {
       font-size: 1rem; 
       padding: 0 .4rem;
+      margin: 0 !important;
     }
     @media (max-width: 300px){
       .first , .second, .third{
         padding-right: 0rem;
+
       }
     }
   }
