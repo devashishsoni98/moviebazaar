@@ -19,6 +19,12 @@ const SearchBar = ({ onSearch, onClose }) => {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="s-container">
       <input
@@ -27,6 +33,7 @@ const SearchBar = ({ onSearch, onClose }) => {
         placeholder="Search movies..."
         value={searchTerm}
         onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
       />
       <button className="search-btn" onClick={handleSearch}>
         <FaSearch className="icon" />
