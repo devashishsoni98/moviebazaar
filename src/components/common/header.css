@@ -69,6 +69,7 @@ ul{
 }
 .d-list:hover{
   color: var(--secondaryColor);
+  cursor: pointer;
 }
 
 header {
