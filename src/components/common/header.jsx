@@ -8,6 +8,7 @@ import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./header.css";
+import Headroom from "react-headroom";
 
 
 const Navbar = ({ onSearch, onHomeClick }) => {
@@ -43,6 +44,15 @@ const Navbar = ({ onSearch, onHomeClick }) => {
   };
 
   return (
+    <>
+    <Headroom className='headr'
+    style={{
+      webkitTransition: 'all .5s ease',
+      mozTransition: 'all .5s ease',
+      oTransition: 'all .5s ease',
+      transition: 'all .5s ease'
+    }}
+    >
     <header>
       <h3>
         <Link className="logo" to="/" onClick={onHomeClick}>
@@ -110,6 +120,8 @@ const Navbar = ({ onSearch, onHomeClick }) => {
         <FaBars />
       </button>
     </header>
+    </Headroom>
+    </>
   );
 };
 
