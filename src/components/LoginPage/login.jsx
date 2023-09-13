@@ -71,7 +71,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in to Movie Bazaar
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }} style={{zIndex:"0"}}>
           <TextField
             margin="normal"
             required
