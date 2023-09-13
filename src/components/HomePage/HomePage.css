@@ -37,6 +37,14 @@ footer{
     width: -webkit-fill-available;
   }
 
+  .sort-dropdown{
+    display: flex;
+    padding-top: 2rem;
+    padding-right: 6rem;
+    justify-content: end;
+    align-items: center;
+  }
+
   @media (max-width:768px){
   .d{
     margin-top: 10% !important;
