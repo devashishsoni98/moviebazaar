@@ -103,6 +103,7 @@ const HomePage = () => {
                 <div className="sort-dropdown">
                   <label htmlFor="sort-dropdown" className="labell">Sort by:</label>
                   <select
+                    className="select-sort"
                     id="sort-dropdown"
                     value={sortBy}
                     onChange={(e) => handleSortChange(e.target.value)}

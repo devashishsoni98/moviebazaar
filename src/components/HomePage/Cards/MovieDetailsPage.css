@@ -108,6 +108,9 @@
     width: 100%; 
     margin: 2rem 0;
   }
+  .space{
+    font-size: 1.65rem;
+  }
 }
 @media (max-width:1000px) {
   .overview {
