@@ -28,10 +28,11 @@ Then write these commands in terminal:
 
 ```bash
   git clone repo-url
+```
+Replace the "repo-url" with this repository's url that you copied.\
+```bash
   code .
 ```
-
-Replace the "repo-url" with this repository's url that you copied.\
 The code . is used to open this folder in vs code.\
 Then, execute these commands in vs code terminal:
 
@@ -55,6 +56,7 @@ To run this project, you will need to add the following environment variables to
 Enter you API keys as :
 
 `REACT_APP_FIREBASE_API="enterhere"`
+`REACT_APP_TMDB_API="enterhere"`
 
 replace "enterhere" with your api key.
 
