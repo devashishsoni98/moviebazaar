@@ -55,7 +55,7 @@ To run this project, you will need to add the following environment variables to
 
 Enter you API keys as :
 
-`REACT_APP_FIREBASE_API="enterhere"`
+`REACT_APP_FIREBASE_API="enterhere"`\
 `REACT_APP_TMDB_API="enterhere"`
 
 replace "enterhere" with your api key.
