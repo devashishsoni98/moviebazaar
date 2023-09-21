@@ -13,7 +13,7 @@ const Footer = () => {
         <p>Sample text here.</p>
       </div>
       <div className="item2 second">
-        <p>Copyright © Devashish Soni 2023</p>
+        <p>Copyright © MovieBazaar 2023</p>
       </div>
       <div className="item3 third">
         <h1 className='about-h'>Follow Us</h1>
