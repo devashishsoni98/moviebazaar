@@ -56,7 +56,7 @@ const Navbar = ({ onSearch, onHomeClick }) => {
     <header>
       <h3>
         <Link className="logo" to="/" onClick={onHomeClick}>
-          MB
+          DS
         </Link>
       </h3>
       <nav className="navi" ref={navRef}>
