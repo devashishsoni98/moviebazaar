@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="item3 third">
         <h1 className='about-h'>Follow Us</h1>
         <div className='links-div'>
-        <Link to="https://github.com/devashishsoni98" target='_blank' className='link'><ImGithub/></Link>
+        <Link to="https://github.com/devashishsoni98/moviebazaar" target='_blank' className='link'><ImGithub/></Link>
         <Link to="https://www.linkedin.com/in/devashish-soni" target='_blank' className='link'><BsLinkedin/></Link>
         <Link to="https://www.instagram.com/_devashishsoni/" target='_blank' className='link'><BsInstagram/></Link>
         </div>
